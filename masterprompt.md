@@ -1,121 +1,128 @@
-# MASTER PROMPT — ArtSaaS (saas01 + art04 fusion) for CLIne
+# Master Prompt & Checklist for Art09
 
-You are CLIne, a code generation / scaffolding agent. Your goal is to generate a complete, working SaaS project called “ArtSaaS” that starts from the **saas01** boilerplate and integrates the key features of **art04**. Use this prompt to guide your work. Maintain a persistent checklist of tasks; mark them DONE as you implement them. Generate code, config, docs, and examples.
-
----
-
-## Goals & Requirements
-
-1. **Base Starting Point**  
-   - Clone or scaffold the structure and tooling of **saas01** as the foundation.  
-   - Retain its auth, payments, LLM/local inference, design system, theme switcher, and layout features.
-
-2. **Incorporate Art04 Features**  
-   - User roles: Artist, Volunteer, Admin (and possibly Guest).  
-   - Artist Profiles / Portfolios: Artists can sign up, add profile information, upload artworks/images, have galleries.  
-   - Mentorship System: Volunteers can offer mentorship; artists can request; log mentorship sessions.  
-   - Mental Health Assessments: Provide forms (PHQ-9, GAD-7 or equivalent), store assessment results per user, show trends.  
-   - Dashboards: For artists, volunteers, and admins to see metrics (e.g. number of mentors, assessment stats, donations, portfolio views).  
-   - Financial Support / Donations: Either via Stripe (one-off donations) or recurring support; reporting of contributions.  
-
-3. **Technical Stack & Local-First**  
-   - Next.js + TypeScript (App Router).  
-   - Tailwind CSS + shadcn/ui with Radix.  
-   - Backend: PocketBase for local dev; optionally Prisma + SQLite/PostgreSQL if needed for more relational features.  
-   - LLM / inference hooks (mock + real) as in saas01.  
-   - Payments: Stripe example + PayPal.  
-   - Charts / Data Visualization (e.g. Recharts).  
-
-4. **UX / UI / Accessibility**  
-   - Responsive design.  
-   - Theme switching (light/dark).  
-   - Accessible components.  
-   - Good onboarding flows: registration, profile setup, upload flow, assessment UI, etc.  
-   - Proper form validation, errors, loading states.  
-
-5. **Developer Tools / DX**  
-   - Scripts: `init-dev.sh`, `bootstrap`/`seed` scripts, start scripts.  
-   - `.env.example` with required env variables.  
-   - Tests: at least smoke tests, UI test for dashboard, backend wrappers.  
-   - CI skeleton (GitHub Actions or similar).  
-   - Documentation: README, usage, contrib.  
+The goal of this document is to serve as the single **master prompt** for CLIne (or another AI assistant) and as the **canonical checklist** of tasks required to fully fix, complete, and polish the Art09 repository.
 
 ---
 
-## Persistent Checklist
+## Prompt for CLIne
 
-- [ ] Clone / scaffold saas01 base (retain design, components, theme)  
-- [ ] Setup roles: Artist, Volunteer, Admin authentication and role enforcement  
-- [ ] Artist profile & portfolio feature (upload images, gallery pages)  
-- [ ] Mentorship: request/offering system + session logging UI & models  
-- [ ] Mental health assessment forms + results + trends charting  
-- [ ] Payment / financial support flows (donations, optional subscriptions)  
-- [ ] Dashboards for each user type (artist, volunteer, admin)  
-- [ ] Chart components for impact metrics  
-- [ ] Local inference / LLM hooks (mock + real)  
-- [ ] Tailwind + shadcn UI theming, dark mode, component polish  
-- [ ] Scripts: setup, seed, start local  
-- [ ] Environment variables & example file  
-- [ ] Tests & CI workflow  
-- [ ] Documentation (README, contributing, deployment)  
+You are an expert full-stack engineer. Your job is to **audit, fix, and complete** the Art09 repository.
 
----
+This repository currently has:
+- Broken or inconsistent **role permissions**
+- Nonfunctional **links and buttons** across several pages
+- **Redirects** missing or not firing correctly after login/logout
+- **Incomplete features** (Stripe, file upload, mentorship, assessments, analytics)
+- **Bootstrap scripts** that don't fully configure PocketBase and dev environment
+- UI/UX issues: missing loading/error states, nonresponsive layouts, accessibility gaps
+- **Tests and CI** not configured or incomplete
+- **Documentation** outdated and not reflecting real functionality
 
-## File & Feature Map to Implement
-
-For each item in checklist, plan out the files and features needed. Example mapping:
-
-- **Roles & Auth**: update backend schema (PocketBase or Prisma) → role field; frontend auth logic; role-guarded pages.  
-- **Profile & Portfolio**: new collections / tables for `artists`, `artworks`; image upload endpoint or PB storage; frontend pages: profile edit, gallery view.  
-- **Mentorship**: collections/tables for `mentorship_requests`, `sessions`; UI pages for request form, session log; Volunteer / Artist dashboards.  
-- **Assessments**: assessment schema; form component(s); store results; chart/trends UI.  
-- **Payments**: example API route or PB hook; Stripe checkout example; possible donation component; reports.  
-- **Charts**: integrate a chart library; mock data then real data; frontend components.  
+Your tasks are to **systematically identify, fix, and verify** all issues listed below.
 
 ---
 
-## Generation Instructions
+## Audit Checklist & Tasks
 
-- Begin by producing updated `package.json`, `tsconfig.json`, `next.config.js`, `tailwind.config.js`, directory scaffold based on saas01 but adding new folders as required.  
-- Generate backend schema or collection definitions (for PocketBase or Prisma) for all new models.  
-- Generate frontend pages/components for new features.  
-- Generate mock seed data.  
-- Insert comments / TODOs for things requiring secrets (Stripe keys etc).  
-- For each feature, produce at least minimal working code.  
+### ✅ Core Project Health
+- [ ] Run `npm run lint`, `npm run type-check`, and resolve all issues
+- [ ] Ensure `npm run dev` boots a clean local instance with seeded data
+- [ ] Add or fix tests; all should pass with at least 80% coverage
+- [ ] Configure GitHub Actions to run lint, type-check, and tests automatically
+
+### 🔒 Roles & Permissions
+- [ ] Define clear roles: `guest`, `artist`, `volunteer`, `admin`
+- [ ] Document allowed actions for each role (matrix in README)
+- [ ] Enforce permissions on server routes (Next.js API, PocketBase rules)
+- [ ] Guard client-side UI (disable or hide unauthorized actions)
+- [ ] Redirect unauthorized users to correct pages (login, dashboard)
+- [ ] Add automated tests for role-based flows
+
+### 📦 Routing & Redirects
+- [ ] Audit all routes in `app/` and ensure they exist & render
+- [ ] Fix missing or broken redirects after login, logout, signup
+- [ ] Add `404` and `catch-all` fallback routes
+- [ ] Remove or replace hardcoded URLs with dynamic environment-safe values
+- [ ] Verify active nav highlighting across pages
+
+### 🔗 Links, Buttons & Forms
+- [ ] Identify all nonfunctional links/buttons; implement missing handlers
+- [ ] Fix navigation inconsistencies in header/sidebar
+- [ ] Ensure forms (signup, login, upload, requests) validate input & handle errors
+- [ ] Provide success/error feedback on every form action
+- [ ] Add proper loading states for submit buttons
+
+### 🛠️ Features to Implement/Complete
+- [ ] **Stripe integration** for donations/subscriptions
+- [ ] **File upload** (artwork images, documents) with proper storage and scaling
+- [ ] **Assessments** (PHQ-9, GAD-7) with results tracking and trend charts
+- [ ] **Mentorship system** (request, approval, matching, history)
+- [ ] **Admin dashboards** (user management, reports, analytics)
+- [ ] **Analytics pages** (usage metrics, donation summaries, charts)
+
+### 🧱 Data & Scripts
+- [ ] Fix `init-pb.sh` and `bootstrap-collections.sh` to work without errors
+- [ ] Ensure initial seeding creates roles, demo users, and example data
+- [ ] Add migration/versioning for PocketBase schema
+- [ ] Write script to reset/reseed dev database cleanly
+
+### 🚧 Error Handling & Edge Cases
+- [ ] Wrap all data fetches with loading & error UI states
+- [ ] Handle empty data gracefully (no crashes)
+- [ ] Add retry logic for network/API failures
+- [ ] Display user-friendly error messages throughout
+
+### 💅 Styling & UX
+- [ ] Ensure full responsiveness on mobile, tablet, desktop
+- [ ] Fix broken layouts and spacing inconsistencies
+- [ ] Add dark/light mode support where missing
+- [ ] Ensure semantic HTML, ARIA labels, accessible color contrast
+- [ ] Fix image scaling/cropping for artwork display
+
+### 🧪 Tests & CI
+- [ ] Write unit tests for core components and hooks
+- [ ] Add integration/E2E tests for major flows (login, upload, donation, requests)
+- [ ] Set code coverage minimum to 80% in CI
+- [ ] Configure CI to fail on lint/type/test errors
+
+### 📚 Documentation
+- [ ] Rewrite README to match final features and flows
+- [ ] Add setup instructions (PocketBase, env vars, seeding)
+- [ ] Provide a "Developer Guide" (roles, architecture, deployment)
+- [ ] Document API routes and schema
+- [ ] Add troubleshooting and known issues section
 
 ---
 
-## Output Format & Expectations
-
-- You must produce the files in repo structure. For each file, include top-comment describing purpose.  
-- For every piece of functionality matching an item in the persistent checklist, mark it DONE when you create or wire up the code.  
-- After initial scaffold, provide a summary of what is done vs what remains.  
-
----
-
-## Developer Actions Required (start-up)
-
-At end of generation, show commands:
-
-1. `./scripts/init-dev.sh`  
-2. `./scripts/bootstrap-collections.sh` (or equivalent seed)  
-3. `./scripts/start-local.sh`  
-
-Then verify in browser:
-
-- Frontend at `localhost:3000`  
-- Backend / PocketBase Admin at `localhost:8090/_/`  
-- Access key features: Artist profile, assessment form, donation page, mentor session log  
+## Acceptance Criteria
+- No broken links, buttons, or routes
+- Roles and permissions enforced both client and server side
+- All pages redirect correctly based on state and role
+- All features implemented and tested
+- Dev environment bootstraps cleanly with seed data
+- Tests pass with ≥80% coverage
+- CI pipeline enforces quality gates
+- README and docs fully up to date
 
 ---
 
-## Constraints / Caveats
-
-- If using PocketBase, many relational queries or joins might be limited; plan accordingly or use Prisma + Postgres for production.  
-- Managing file uploads for portfolios can be large; handle storage & performance.  
-- Stripe webhooks for local dev require tunneling (ngrok etc).  
-- Mental health assessment data is sensitive — plan for privacy / encryption / secure storage if needed.  
+## Execution Order (Suggested)
+1. Core linting, type checks, and dev bootstrap
+2. Roles/permissions enforcement and redirects
+3. Fix nonfunctional links/buttons/forms
+4. Implement missing features (Stripe, uploads, assessments, mentorship, analytics)
+5. Add error handling, loading, empty states
+6. UX/styling/accessibility polish
+7. Tests (unit, integration, E2E)
+8. CI pipeline setup
+9. Documentation rewrite
+10. Final acceptance test and release tag
 
 ---
 
-# End of master prompt
+## Output Expectation
+When this prompt is executed against the repository, the assistant should produce:
+1. A prioritized report of fixes applied
+2. The updated codebase with all items checked off
+3. Updated README and developer docs
+4. Passing CI build with full feature set complete
