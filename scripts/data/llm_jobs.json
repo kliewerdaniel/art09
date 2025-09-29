@@ -1,0 +1,53 @@
+[
+  {
+    "user": "USER_ID_PLACEHOLDER_1",
+    "prompt": "Explain quantum computing in simple terms",
+    "status": "completed",
+    "output": "Quantum computing uses quantum mechanics principles to process information. Unlike classical computers that use bits (0 or 1), quantum computers use qubits that can be in multiple states simultaneously through superposition. This allows them to solve certain problems much faster than traditional computers.",
+    "model": "gpt-3.5-turbo",
+    "parameters": {
+      "temperature": 0.7,
+      "max_tokens": 150
+    },
+    "started_at": "2024-01-15 10:30:00.000Z",
+    "completed_at": "2024-01-15 10:30:02.000Z",
+    "tokens_used": 45,
+    "cost": 0.002
+  },
+  {
+    "user": "USER_ID_PLACEHOLDER_1",
+    "prompt": "Write a Python function to calculate fibonacci numbers",
+    "status": "completed",
+    "output": "```python\ndef fibonacci(n):\n    if n <= 1:\n        return n\n    return fibonacci(n-1) + fibonacci(n-2)\n\n# Example usage\nprint(fibonacci(10))  # Output: 55\n```",
+    "model": "gpt-4",
+    "parameters": {
+      "temperature": 0.3,
+      "max_tokens": 100
+    },
+    "started_at": "2024-01-15 11:00:00.000Z",
+    "completed_at": "2024-01-15 11:00:01.000Z",
+    "tokens_used": 78,
+    "cost": 0.004
+  },
+  {
+    "user": "USER_ID_PLACEHOLDER_2",
+    "prompt": "Help me debug this JavaScript error",
+    "status": "processing",
+    "model": "gpt-4",
+    "parameters": {
+      "temperature": 0.5,
+      "max_tokens": 200
+    },
+    "started_at": "2024-01-15 14:20:00.000Z"
+  },
+  {
+    "user": "USER_ID_PLACEHOLDER_3",
+    "prompt": "Create a marketing strategy for a SaaS product",
+    "status": "pending",
+    "model": "claude-3",
+    "parameters": {
+      "temperature": 0.8,
+      "max_tokens": 500
+    }
+  }
+]

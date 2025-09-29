@@ -1,0 +1,149 @@
+{
+  "name": "invoices",
+  "type": "base",
+  "system": false,
+  "schema": [
+    {
+      "name": "user",
+      "type": "relation",
+      "required": true,
+      "options": {
+        "collectionId": "users",
+        "cascadeDelete": true,
+        "minSelect": 1,
+        "maxSelect": 1
+      }
+    },
+    {
+      "name": "subscription",
+      "type": "relation",
+      "required": false,
+      "options": {
+        "collectionId": "subscriptions",
+        "cascadeDelete": false,
+        "minSelect": 1,
+        "maxSelect": 1
+      }
+    },
+    {
+      "name": "stripe_invoice_id",
+      "type": "text",
+      "required": false,
+      "options": {
+        "max": 255
+      }
+    },
+    {
+      "name": "amount",
+      "type": "number",
+      "required": true,
+      "options": {
+        "min": 0
+      }
+    },
+    {
+      "name": "currency",
+      "type": "text",
+      "required": true,
+      "options": {
+        "max": 3
+      }
+    },
+    {
+      "name": "status",
+      "type": "select",
+      "required": true,
+      "options": {
+        "maxSelect": 1,
+        "values": [
+          "draft",
+          "open",
+          "paid",
+          "void",
+          "uncollectible"
+        ]
+      }
+    },
+    {
+      "name": "description",
+      "type": "text",
+      "required": false,
+      "options": {
+        "max": 1000
+      }
+    },
+    {
+      "name": "invoice_pdf",
+      "type": "file",
+      "required": false,
+      "options": {
+        "maxSelect": 1,
+        "maxSize": 10485760,
+        "mimeTypes": [
+          "application/pdf"
+        ],
+        "thumbs": []
+      }
+    },
+    {
+      "name": "due_date",
+      "type": "date",
+      "required": false,
+      "options": {
+        "max": ""
+      }
+    },
+    {
+      "name": "paid_at",
+      "type": "date",
+      "required": false,
+      "options": {
+        "max": ""
+      }
+    },
+    {
+      "name": "billing_period_start",
+      "type": "date",
+      "required": false,
+      "options": {
+        "max": ""
+      }
+    },
+    {
+      "name": "billing_period_end",
+      "type": "date",
+      "required": false,
+      "options": {
+        "max": ""
+      }
+    }
+  ],
+  "indexes": [
+    {
+      "name": "idx_invoices_user",
+      "fields": [
+        "user",
+        "created"
+      ]
+    },
+    {
+      "name": "idx_invoices_stripe",
+      "unique": true,
+      "fields": [
+        "stripe_invoice_id"
+      ]
+    },
+    {
+      "name": "idx_invoices_status",
+      "fields": [
+        "status",
+        "due_date"
+      ]
+    }
+  ],
+  "listRule": "@request.auth.id != \"\"",
+  "viewRule": "@request.auth.id = user",
+  "createRule": "@request.auth.id = user",
+  "updateRule": "@request.auth.id = user",
+  "deleteRule": "@request.auth.id = user"
+}

@@ -1,0 +1,134 @@
+{
+  "name": "artists",
+  "type": "base",
+  "system": false,
+  "schema": [
+    {
+      "name": "user",
+      "type": "relation",
+      "required": true,
+      "options": {
+        "collectionId": "users",
+        "cascadeDelete": true,
+        "minSelect": null,
+        "maxSelect": 1
+      }
+    },
+    {
+      "name": "artistic_mediums",
+      "type": "select",
+      "options": {
+        "values": ["painting", "drawing", "sculpture", "digital_art", "photography", "mixed_media", "ceramics", "textiles", "printmaking", "other"]
+      }
+    },
+    {
+      "name": "experience_level",
+      "type": "select",
+      "required": true,
+      "options": {
+        "values": ["beginner", "intermediate", "advanced", "professional"]
+      }
+    },
+    {
+      "name": "portfolio_website",
+      "type": "url"
+    },
+    {
+      "name": "instagram_handle",
+      "type": "text"
+    },
+    {
+      "name": "artistic_statement",
+      "type": "text"
+    },
+    {
+      "name": "skills",
+      "type": "text"
+    },
+    {
+      "name": "availability_for_mentorship",
+      "type": "bool",
+      "required": true,
+      "options": {
+        "default": true
+      }
+    },
+    {
+      "name": "preferred_mentorship_type",
+      "type": "select",
+      "options": {
+        "values": ["in_person", "virtual", "both"]
+      }
+    },
+    {
+      "name": "languages_spoken",
+      "type": "text"
+    },
+    {
+      "name": "emergency_contact_name",
+      "type": "text"
+    },
+    {
+      "name": "emergency_contact_phone",
+      "type": "text"
+    },
+    {
+      "name": "special_needs",
+      "type": "text"
+    },
+    {
+      "name": "portfolio_views",
+      "type": "number",
+      "required": true,
+      "options": {
+        "default": 0
+      }
+    },
+    {
+      "name": "total_donations",
+      "type": "number",
+      "required": true,
+      "options": {
+        "default": 0
+      }
+    },
+    {
+      "name": "created_at",
+      "type": "date",
+      "required": true,
+      "options": {
+        "default": "now"
+      }
+    },
+    {
+      "name": "updated_at",
+      "type": "date",
+      "required": true,
+      "options": {
+        "default": "now"
+      }
+    }
+  ],
+  "indexes": [
+    {
+      "name": "idx_user",
+      "fields": ["user"],
+      "unique": true
+    },
+    {
+      "name": "idx_experience_level",
+      "fields": ["experience_level"]
+    },
+    {
+      "name": "idx_availability",
+      "fields": ["availability_for_mentorship"]
+    }
+  ],
+  "rules": {
+    "list": true,
+    "view": true,
+    "create": true,
+    "update": true,
+    "delete": false
+  }
+}

@@ -1,0 +1,36 @@
+[
+  {
+    "id": "artist_001",
+    "user": "user_artist_001",
+    "artistic_mediums": ["painting", "mixed_media"],
+    "experience_level": "advanced",
+    "portfolio_website": "https://sarahchen.art",
+    "instagram_handle": "@sarahchen_art",
+    "artistic_statement": "My work explores the intersection of cultural identity and personal narrative through abstract painting and mixed media installations.",
+    "skills": "Oil painting, Acrylic techniques, Color theory, Art installation",
+    "availability_for_mentorship": true,
+    "preferred_mentorship_type": "both",
+    "languages_spoken": "English, Mandarin",
+    "portfolio_views": 245,
+    "total_donations": 1250.00,
+    "created": "2024-01-02 00:00:00.000Z",
+    "updated": "2024-01-02 00:00:00.000Z"
+  },
+  {
+    "id": "artist_002",
+    "user": "user_artist_002",
+    "artistic_mediums": ["photography", "digital_art"],
+    "experience_level": "professional",
+    "portfolio_website": "https://mikerodriguez.photo",
+    "instagram_handle": "@mike_streetphoto",
+    "artistic_statement": "I capture the raw energy of city life, focusing on the beauty found in everyday moments and urban decay.",
+    "skills": "Street photography, Digital editing, Lightroom, Composition",
+    "availability_for_mentorship": true,
+    "preferred_mentorship_type": "virtual",
+    "languages_spoken": "English, Spanish",
+    "portfolio_views": 189,
+    "total_donations": 890.00,
+    "created": "2024-01-03 00:00:00.000Z",
+    "updated": "2024-01-03 00:00:00.000Z"
+  }
+]

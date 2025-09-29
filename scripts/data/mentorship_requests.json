@@ -1,0 +1,30 @@
+[
+  {
+    "id": "mentorship_request_001",
+    "artist": "artist_001",
+    "volunteer": "user_volunteer_001",
+    "status": "accepted",
+    "request_message": "I'm struggling with finding my artistic voice and would love guidance on developing a cohesive body of work. I'm particularly interested in exploring cultural identity themes but feel stuck on how to translate personal experiences into visual art.",
+    "response_message": "I'd be happy to help you explore your artistic voice! We can work on developing your personal narrative and finding authentic ways to express your cultural experiences through your art.",
+    "preferred_mentorship_type": "virtual",
+    "preferred_frequency": "bi_weekly",
+    "goals": "Develop artistic voice, Create cohesive body of work, Explore cultural identity themes",
+    "requested_at": "2024-01-15 00:00:00.000Z",
+    "responded_at": "2024-01-16 00:00:00.000Z",
+    "created": "2024-01-15 00:00:00.000Z",
+    "updated": "2024-01-16 00:00:00.000Z"
+  },
+  {
+    "id": "mentorship_request_002",
+    "artist": "artist_002",
+    "volunteer": "user_volunteer_002",
+    "status": "pending",
+    "request_message": "I'm a street photographer looking to transition from hobby to professional practice. I need guidance on portfolio development, pricing my work, and approaching galleries.",
+    "preferred_mentorship_type": "both",
+    "preferred_frequency": "monthly",
+    "goals": "Professional development, Portfolio building, Gallery representation",
+    "requested_at": "2024-01-20 00:00:00.000Z",
+    "created": "2024-01-20 00:00:00.000Z",
+    "updated": "2024-01-20 00:00:00.000Z"
+  }
+]

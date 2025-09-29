@@ -1,0 +1,123 @@
+{
+  "name": "llm_jobs",
+  "type": "base",
+  "system": false,
+  "schema": [
+    {
+      "name": "user",
+      "type": "relation",
+      "required": true,
+      "options": {
+        "collectionId": "users",
+        "cascadeDelete": true,
+        "minSelect": 1,
+        "maxSelect": 1
+      }
+    },
+    {
+      "name": "prompt",
+      "type": "text",
+      "required": true,
+      "options": {
+        "max": 10000
+      }
+    },
+    {
+      "name": "status",
+      "type": "select",
+      "required": true,
+      "options": {
+        "maxSelect": 1,
+        "values": [
+          "pending",
+          "processing",
+          "completed",
+          "failed"
+        ]
+      }
+    },
+    {
+      "name": "output",
+      "type": "text",
+      "required": false,
+      "options": {
+        "max": 50000
+      }
+    },
+    {
+      "name": "error",
+      "type": "text",
+      "required": false,
+      "options": {
+        "max": 1000
+      }
+    },
+    {
+      "name": "model",
+      "type": "text",
+      "required": false,
+      "options": {
+        "max": 255
+      }
+    },
+    {
+      "name": "parameters",
+      "type": "json",
+      "required": false,
+      "options": {}
+    },
+    {
+      "name": "started_at",
+      "type": "date",
+      "required": false,
+      "options": {
+        "max": ""
+      }
+    },
+    {
+      "name": "completed_at",
+      "type": "date",
+      "required": false,
+      "options": {
+        "max": ""
+      }
+    },
+    {
+      "name": "tokens_used",
+      "type": "number",
+      "required": false,
+      "options": {
+        "min": 0
+      }
+    },
+    {
+      "name": "cost",
+      "type": "number",
+      "required": false,
+      "options": {
+        "min": 0
+      }
+    }
+  ],
+  "indexes": [
+    {
+      "name": "idx_llm_jobs_user",
+      "fields": [
+        "user",
+        "created"
+      ]
+    },
+    {
+      "name": "idx_llm_jobs_status",
+      "fields": [
+        "status",
+        "created"
+      ]
+    }
+  ],
+  "listRule": "@request.auth.id != \"\"",
+  "viewRule": "@request.auth.id = user",
+  "createRule": "@request.auth.id = user",
+  "updateRule": "@request.auth.id = user",
+  "deleteRule": "@request.auth.id = user"
+}

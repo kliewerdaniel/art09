@@ -1,0 +1,104 @@
+{
+  "name": "subscriptions",
+  "type": "base",
+  "system": false,
+  "schema": [
+    {
+      "name": "user",
+      "type": "relation",
+      "required": true,
+      "options": {
+        "collectionId": "users",
+        "cascadeDelete": true,
+        "minSelect": 1,
+        "maxSelect": 1
+      }
+    },
+    {
+      "name": "stripe_customer_id",
+      "type": "text",
+      "required": false,
+      "options": {
+        "max": 255
+      }
+    },
+    {
+      "name": "stripe_subscription_id",
+      "type": "text",
+      "required": false,
+      "options": {
+        "max": 255
+      }
+    },
+    {
+      "name": "status",
+      "type": "select",
+      "required": true,
+      "options": {
+        "maxSelect": 1,
+        "values": [
+          "active",
+          "canceled",
+          "past_due",
+          "incomplete"
+        ]
+      }
+    },
+    {
+      "name": "tier",
+      "type": "select",
+      "required": true,
+      "options": {
+        "maxSelect": 1,
+        "values": [
+          "free",
+          "pro",
+          "enterprise"
+        ]
+      }
+    },
+    {
+      "name": "current_period_start",
+      "type": "date",
+      "required": false,
+      "options": {
+        "max": ""
+      }
+    },
+    {
+      "name": "current_period_end",
+      "type": "date",
+      "required": false,
+      "options": {
+        "max": ""
+      }
+    },
+    {
+      "name": "cancel_at_period_end",
+      "type": "bool",
+      "required": false,
+      "options": {}
+    }
+  ],
+  "indexes": [
+    {
+      "name": "idx_subscriptions_user",
+      "unique": true,
+      "fields": [
+        "user"
+      ]
+    },
+    {
+      "name": "idx_subscriptions_stripe",
+      "unique": true,
+      "fields": [
+        "stripe_subscription_id"
+      ]
+    }
+  ],
+  "listRule": "@request.auth.id != \"\"",
+  "viewRule": "@request.auth.id != \"\"",
+  "createRule": "@request.auth.id = user",
+  "updateRule": "@request.auth.id = user",
+  "deleteRule": "@request.auth.id = user"
+}

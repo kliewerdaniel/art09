@@ -1,0 +1,39 @@
+[
+  {
+    "user": "USER_ID_PLACEHOLDER_1",
+    "subscription": "SUBSCRIPTION_ID_PLACEHOLDER_1",
+    "stripe_invoice_id": "in_demo_1234567890",
+    "amount": 2900,
+    "currency": "usd",
+    "status": "paid",
+    "description": "Pro Plan - Monthly",
+    "due_date": "2024-02-01 00:00:00.000Z",
+    "paid_at": "2024-01-15 12:00:00.000Z",
+    "billing_period_start": "2024-01-01 00:00:00.000Z",
+    "billing_period_end": "2024-02-01 00:00:00.000Z"
+  },
+  {
+    "user": "USER_ID_PLACEHOLDER_3",
+    "subscription": "SUBSCRIPTION_ID_PLACEHOLDER_2",
+    "stripe_invoice_id": "in_enterprise_1234567890",
+    "amount": 9900,
+    "currency": "usd",
+    "status": "paid",
+    "description": "Enterprise Plan - Monthly",
+    "due_date": "2024-02-01 00:00:00.000Z",
+    "paid_at": "2024-01-10 09:30:00.000Z",
+    "billing_period_start": "2024-01-01 00:00:00.000Z",
+    "billing_period_end": "2024-02-01 00:00:00.000Z"
+  },
+  {
+    "user": "USER_ID_PLACEHOLDER_1",
+    "stripe_invoice_id": "in_demo_1234567891",
+    "amount": 2900,
+    "currency": "usd",
+    "status": "open",
+    "description": "Pro Plan - Monthly (February 2024)",
+    "due_date": "2024-03-01 00:00:00.000Z",
+    "billing_period_start": "2024-02-01 00:00:00.000Z",
+    "billing_period_end": "2024-03-01 00:00:00.000Z"
+  }
+]

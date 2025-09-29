@@ -1,0 +1,168 @@
+{
+  "name": "mentorship_sessions",
+  "type": "base",
+  "system": false,
+  "schema": [
+    {
+      "name": "mentorship_request",
+      "type": "relation",
+      "required": true,
+      "options": {
+        "collectionId": "mentorship_requests",
+        "cascadeDelete": true,
+        "minSelect": null,
+        "maxSelect": 1
+      }
+    },
+    {
+      "name": "artist",
+      "type": "relation",
+      "required": true,
+      "options": {
+        "collectionId": "artists",
+        "cascadeDelete": false,
+        "minSelect": null,
+        "maxSelect": 1
+      }
+    },
+    {
+      "name": "volunteer",
+      "type": "relation",
+      "required": true,
+      "options": {
+        "collectionId": "users",
+        "cascadeDelete": false,
+        "minSelect": null,
+        "maxSelect": 1
+      }
+    },
+    {
+      "name": "session_date",
+      "type": "date",
+      "required": true
+    },
+    {
+      "name": "duration_minutes",
+      "type": "number",
+      "required": true
+    },
+    {
+      "name": "session_type",
+      "type": "select",
+      "required": true,
+      "options": {
+        "values": ["in_person", "virtual", "phone_call"]
+      }
+    },
+    {
+      "name": "location",
+      "type": "text"
+    },
+    {
+      "name": "meeting_link",
+      "type": "url"
+    },
+    {
+      "name": "session_notes",
+      "type": "text"
+    },
+    {
+      "name": "goals_discussed",
+      "type": "text"
+    },
+    {
+      "name": "progress_made",
+      "type": "text"
+    },
+    {
+      "name": "next_steps",
+      "type": "text"
+    },
+    {
+      "name": "challenges_faced",
+      "type": "text"
+    },
+    {
+      "name": "resources_shared",
+      "type": "text"
+    },
+    {
+      "name": "artist_rating",
+      "type": "number",
+      "options": {
+        "min": 1,
+        "max": 5
+      }
+    },
+    {
+      "name": "volunteer_rating",
+      "type": "number",
+      "options": {
+        "min": 1,
+        "max": 5
+      }
+    },
+    {
+      "name": "artist_feedback",
+      "type": "text"
+    },
+    {
+      "name": "volunteer_feedback",
+      "type": "text"
+    },
+    {
+      "name": "status",
+      "type": "select",
+      "required": true,
+      "options": {
+        "values": ["scheduled", "completed", "cancelled", "no_show"],
+        "default": "scheduled"
+      }
+    },
+    {
+      "name": "created_at",
+      "type": "date",
+      "required": true,
+      "options": {
+        "default": "now"
+      }
+    },
+    {
+      "name": "updated_at",
+      "type": "date",
+      "required": true,
+      "options": {
+        "default": "now"
+      }
+    }
+  ],
+  "indexes": [
+    {
+      "name": "idx_mentorship_request",
+      "fields": ["mentorship_request"]
+    },
+    {
+      "name": "idx_artist",
+      "fields": ["artist"]
+    },
+    {
+      "name": "idx_volunteer",
+      "fields": ["volunteer"]
+    },
+    {
+      "name": "idx_session_date",
+      "fields": ["session_date"]
+    },
+    {
+      "name": "idx_status",
+      "fields": ["status"]
+    }
+  ],
+  "rules": {
+    "list": true,
+    "view": true,
+    "create": true,
+    "update": true,
+    "delete": true
+  }
+}

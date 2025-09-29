@@ -1,0 +1,127 @@
+{
+  "name": "mentorship_requests",
+  "type": "base",
+  "system": false,
+  "schema": [
+    {
+      "name": "artist",
+      "type": "relation",
+      "required": true,
+      "options": {
+        "collectionId": "artists",
+        "cascadeDelete": true,
+        "minSelect": null,
+        "maxSelect": 1
+      }
+    },
+    {
+      "name": "volunteer",
+      "type": "relation",
+      "required": true,
+      "options": {
+        "collectionId": "users",
+        "cascadeDelete": false,
+        "minSelect": null,
+        "maxSelect": 1
+      }
+    },
+    {
+      "name": "status",
+      "type": "select",
+      "required": true,
+      "options": {
+        "values": ["pending", "accepted", "rejected", "cancelled", "completed"],
+        "default": "pending"
+      }
+    },
+    {
+      "name": "request_message",
+      "type": "text",
+      "required": true
+    },
+    {
+      "name": "response_message",
+      "type": "text"
+    },
+    {
+      "name": "preferred_mentorship_type",
+      "type": "select",
+      "required": true,
+      "options": {
+        "values": ["in_person", "virtual", "both"]
+      }
+    },
+    {
+      "name": "preferred_frequency",
+      "type": "select",
+      "options": {
+        "values": ["weekly", "bi_weekly", "monthly", "as_needed"]
+      }
+    },
+    {
+      "name": "goals",
+      "type": "text"
+    },
+    {
+      "name": "special_requirements",
+      "type": "text"
+    },
+    {
+      "name": "requested_at",
+      "type": "date",
+      "required": true,
+      "options": {
+        "default": "now"
+      }
+    },
+    {
+      "name": "responded_at",
+      "type": "date"
+    },
+    {
+      "name": "expires_at",
+      "type": "date"
+    },
+    {
+      "name": "created_at",
+      "type": "date",
+      "required": true,
+      "options": {
+        "default": "now"
+      }
+    },
+    {
+      "name": "updated_at",
+      "type": "date",
+      "required": true,
+      "options": {
+        "default": "now"
+      }
+    }
+  ],
+  "indexes": [
+    {
+      "name": "idx_artist",
+      "fields": ["artist"]
+    },
+    {
+      "name": "idx_volunteer",
+      "fields": ["volunteer"]
+    },
+    {
+      "name": "idx_status",
+      "fields": ["status"]
+    },
+    {
+      "name": "idx_requested_at",
+      "fields": ["requested_at"]
+    }
+  ],
+  "rules": {
+    "list": true,
+    "view": true,
+    "create": true,
+    "update": true,
+    "delete": true
+  }
+}

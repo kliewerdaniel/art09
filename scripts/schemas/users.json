@@ -1,0 +1,89 @@
+{
+  "name": "users",
+  "type": "auth",
+  "system": false,
+  "schema": [
+    {
+      "name": "role",
+      "type": "select",
+      "required": true,
+      "options": {
+        "values": [
+          "artist",
+          "volunteer",
+          "admin",
+          "guest"
+        ]
+      }
+    },
+    {
+      "name": "first_name",
+      "type": "text",
+      "required": true
+    },
+    {
+      "name": "last_name",
+      "type": "text",
+      "required": true
+    },
+    {
+      "name": "bio",
+      "type": "text"
+    },
+    {
+      "name": "location",
+      "type": "text"
+    },
+    {
+      "name": "website",
+      "type": "url"
+    },
+    {
+      "name": "profile_image",
+      "type": "file"
+    },
+    {
+      "name": "is_profile_complete",
+      "type": "bool",
+      "required": true,
+      "options": {
+        "default": false
+      }
+    },
+    {
+      "name": "created_at",
+      "type": "date",
+      "required": true,
+      "options": {
+        "default": "now"
+      }
+    },
+    {
+      "name": "updated_at",
+      "type": "date",
+      "required": true,
+      "options": {
+        "default": "now"
+      }
+    }
+  ],
+  "indexes": [
+    {
+      "name": "idx_role",
+      "fields": [
+        "role"
+      ]
+    },
+    {
+      "name": "idx_profile_complete",
+      "fields": [
+        "is_profile_complete"
+      ]
+    }
+  ],
+  "listRule": "role != 'guest'",
+  "viewRule": null,
+  "createRule": null,
+  "updateRule": null,
+  "deleteRule": null
+}

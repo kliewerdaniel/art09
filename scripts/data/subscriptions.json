@@ -1,0 +1,22 @@
+[
+  {
+    "user": "USER_ID_PLACEHOLDER_1",
+    "stripe_customer_id": "cus_demo_1234567890",
+    "stripe_subscription_id": "sub_demo_1234567890",
+    "status": "active",
+    "tier": "pro",
+    "current_period_start": "2024-01-01 00:00:00.000Z",
+    "current_period_end": "2024-02-01 00:00:00.000Z",
+    "cancel_at_period_end": false
+  },
+  {
+    "user": "USER_ID_PLACEHOLDER_3",
+    "stripe_customer_id": "cus_enterprise_1234567890",
+    "stripe_subscription_id": "sub_enterprise_1234567890",
+    "status": "active",
+    "tier": "enterprise",
+    "current_period_start": "2024-01-01 00:00:00.000Z",
+    "current_period_end": "2024-02-01 00:00:00.000Z",
+    "cancel_at_period_end": false
+  }
+]

@@ -1,0 +1,176 @@
+{
+  "name": "mental_health_assessments",
+  "type": "base",
+  "system": false,
+  "schema": [
+    {
+      "name": "user",
+      "type": "relation",
+      "required": true,
+      "options": {
+        "collectionId": "users",
+        "cascadeDelete": true,
+        "minSelect": null,
+        "maxSelect": 1
+      }
+    },
+    {
+      "name": "assessment_type",
+      "type": "select",
+      "required": true,
+      "options": {
+        "values": ["phq9", "gad7", "combined"]
+      }
+    },
+    {
+      "name": "assessment_date",
+      "type": "date",
+      "required": true,
+      "options": {
+        "default": "now"
+      }
+    },
+    {
+      "name": "phq9_responses",
+      "type": "text"
+    },
+    {
+      "name": "phq9_score",
+      "type": "number",
+      "options": {
+        "min": 0,
+        "max": 27
+      }
+    },
+    {
+      "name": "phq9_severity",
+      "type": "select",
+      "options": {
+        "values": ["none", "mild", "moderate", "moderately_severe", "severe"]
+      }
+    },
+    {
+      "name": "gad7_responses",
+      "type": "text"
+    },
+    {
+      "name": "gad7_score",
+      "type": "number",
+      "options": {
+        "min": 0,
+        "max": 21
+      }
+    },
+    {
+      "name": "gad7_severity",
+      "type": "select",
+      "options": {
+        "values": ["none", "mild", "moderate", "severe"]
+      }
+    },
+    {
+      "name": "total_score",
+      "type": "number"
+    },
+    {
+      "name": "overall_risk_level",
+      "type": "select",
+      "options": {
+        "values": ["low", "medium", "high", "crisis"]
+      }
+    },
+    {
+      "name": "notes",
+      "type": "text"
+    },
+    {
+      "name": "recommendations",
+      "type": "text"
+    },
+    {
+      "name": "crisis_resources_provided",
+      "type": "bool",
+      "required": true,
+      "options": {
+        "default": false
+      }
+    },
+    {
+      "name": "follow_up_needed",
+      "type": "bool",
+      "required": true,
+      "options": {
+        "default": false
+      }
+    },
+    {
+      "name": "follow_up_date",
+      "type": "date"
+    },
+    {
+      "name": "admin_reviewed",
+      "type": "bool",
+      "required": true,
+      "options": {
+        "default": false
+      }
+    },
+    {
+      "name": "admin_notes",
+      "type": "text"
+    },
+    {
+      "name": "is_complete",
+      "type": "bool",
+      "required": true,
+      "options": {
+        "default": false
+      }
+    },
+    {
+      "name": "created_at",
+      "type": "date",
+      "required": true,
+      "options": {
+        "default": "now"
+      }
+    },
+    {
+      "name": "updated_at",
+      "type": "date",
+      "required": true,
+      "options": {
+        "default": "now"
+      }
+    }
+  ],
+  "indexes": [
+    {
+      "name": "idx_user",
+      "fields": ["user"]
+    },
+    {
+      "name": "idx_assessment_date",
+      "fields": ["assessment_date"]
+    },
+    {
+      "name": "idx_assessment_type",
+      "fields": ["assessment_type"]
+    },
+    {
+      "name": "idx_risk_level",
+      "fields": ["overall_risk_level"]
+    },
+    {
+      "name": "idx_complete",
+      "fields": ["is_complete"]
+    }
+  ],
+  "rules": {
+    "list": true,
+    "view": true,
+    "create": true,
+    "update": true,
+    "delete": false
+  }
+}

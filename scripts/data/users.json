@@ -1,0 +1,79 @@
+[
+  {
+    "id": "user_admin_001",
+    "email": "admin@artsaas.com",
+    "password": "admin123456",
+    "role": "admin",
+    "first_name": "Admin",
+    "last_name": "User",
+    "bio": "Platform administrator",
+    "is_profile_complete": true,
+    "created": "2024-01-01 00:00:00.000Z",
+    "updated": "2024-01-01 00:00:00.000Z"
+  },
+  {
+    "id": "user_artist_001",
+    "email": "sarah.artist@example.com",
+    "password": "password123",
+    "role": "artist",
+    "first_name": "Sarah",
+    "last_name": "Chen",
+    "bio": "Contemporary painter exploring themes of identity and belonging",
+    "location": "San Francisco, CA",
+    "website": "https://sarahchen.art",
+    "is_profile_complete": true,
+    "created": "2024-01-02 00:00:00.000Z",
+    "updated": "2024-01-02 00:00:00.000Z"
+  },
+  {
+    "id": "user_artist_002",
+    "email": "mike.photographer@example.com",
+    "password": "password123",
+    "role": "artist",
+    "first_name": "Mike",
+    "last_name": "Rodriguez",
+    "bio": "Street photographer capturing urban life and human moments",
+    "location": "New York, NY",
+    "is_profile_complete": true,
+    "created": "2024-01-03 00:00:00.000Z",
+    "updated": "2024-01-03 00:00:00.000Z"
+  },
+  {
+    "id": "user_volunteer_001",
+    "email": "emma.mentor@example.com",
+    "password": "password123",
+    "role": "volunteer",
+    "first_name": "Emma",
+    "last_name": "Thompson",
+    "bio": "Art therapist and mentor helping artists navigate their creative journey",
+    "location": "Portland, OR",
+    "is_profile_complete": true,
+    "created": "2024-01-04 00:00:00.000Z",
+    "updated": "2024-01-04 00:00:00.000Z"
+  },
+  {
+    "id": "user_volunteer_002",
+    "email": "david.guide@example.com",
+    "password": "password123",
+    "role": "volunteer",
+    "first_name": "David",
+    "last_name": "Kim",
+    "bio": "Gallery curator and art business consultant",
+    "location": "Los Angeles, CA",
+    "is_profile_complete": true,
+    "created": "2024-01-05 00:00:00.000Z",
+    "updated": "2024-01-05 00:00:00.000Z"
+  },
+  {
+    "id": "user_donor_001",
+    "email": "patron@example.com",
+    "password": "password123",
+    "role": "guest",
+    "first_name": "Alex",
+    "last_name": "Patron",
+    "bio": "Art enthusiast and supporter of emerging artists",
+    "is_profile_complete": true,
+    "created": "2024-01-06 00:00:00.000Z",
+    "updated": "2024-01-06 00:00:00.000Z"
+  }
+]

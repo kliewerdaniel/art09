@@ -1,0 +1,188 @@
+{
+  "name": "donations",
+  "type": "base",
+  "system": false,
+  "schema": [
+    {
+      "name": "donor",
+      "type": "relation",
+      "required": true,
+      "options": {
+        "collectionId": "users",
+        "cascadeDelete": false,
+        "minSelect": null,
+        "maxSelect": 1
+      }
+    },
+    {
+      "name": "artist",
+      "type": "relation",
+      "required": true,
+      "options": {
+        "collectionId": "artists",
+        "cascadeDelete": false,
+        "minSelect": null,
+        "maxSelect": 1
+      }
+    },
+    {
+      "name": "amount",
+      "type": "number",
+      "required": true,
+      "options": {
+        "min": 0.01
+      }
+    },
+    {
+      "name": "currency",
+      "type": "select",
+      "required": true,
+      "options": {
+        "values": ["USD", "EUR", "GBP", "CAD", "AUD"],
+        "default": "USD"
+      }
+    },
+    {
+      "name": "donation_type",
+      "type": "select",
+      "required": true,
+      "options": {
+        "values": ["one_time", "monthly", "artwork_purchase"],
+        "default": "one_time"
+      }
+    },
+    {
+      "name": "message",
+      "type": "text"
+    },
+    {
+      "name": "is_anonymous",
+      "type": "bool",
+      "required": true,
+      "options": {
+        "default": false
+      }
+    },
+    {
+      "name": "stripe_payment_intent_id",
+      "type": "text"
+    },
+    {
+      "name": "stripe_customer_id",
+      "type": "text"
+    },
+    {
+      "name": "status",
+      "type": "select",
+      "required": true,
+      "options": {
+        "values": ["pending", "completed", "failed", "refunded", "cancelled"],
+        "default": "pending"
+      }
+    },
+    {
+      "name": "payment_method",
+      "type": "select",
+      "options": {
+        "values": ["card", "bank_transfer", "paypal", "other"]
+      }
+    },
+    {
+      "name": "platform_fee",
+      "type": "number",
+      "required": true,
+      "options": {
+        "default": 0
+      }
+    },
+    {
+      "name": "net_amount",
+      "type": "number",
+      "required": true,
+      "options": {
+        "default": 0
+      }
+    },
+    {
+      "name": "processed_at",
+      "type": "date"
+    },
+    {
+      "name": "refunded_at",
+      "type": "date"
+    },
+    {
+      "name": "refund_amount",
+      "type": "number"
+    },
+    {
+      "name": "refund_reason",
+      "type": "text"
+    },
+    {
+      "name": "is_recurring",
+      "type": "bool",
+      "required": true,
+      "options": {
+        "default": false
+      }
+    },
+    {
+      "name": "subscription_id",
+      "type": "text"
+    },
+    {
+      "name": "next_billing_date",
+      "type": "date"
+    },
+    {
+      "name": "created_at",
+      "type": "date",
+      "required": true,
+      "options": {
+        "default": "now"
+      }
+    },
+    {
+      "name": "updated_at",
+      "type": "date",
+      "required": true,
+      "options": {
+        "default": "now"
+      }
+    }
+  ],
+  "indexes": [
+    {
+      "name": "idx_donor",
+      "fields": ["donor"]
+    },
+    {
+      "name": "idx_artist",
+      "fields": ["artist"]
+    },
+    {
+      "name": "idx_status",
+      "fields": ["status"]
+    },
+    {
+      "name": "idx_type",
+      "fields": ["donation_type"]
+    },
+    {
+      "name": "idx_created_at",
+      "fields": ["created_at"]
+    },
+    {
+      "name": "idx_recurring",
+      "fields": ["is_recurring"]
+    }
+  ],
+  "rules": {
+    "list": true,
+    "view": true,
+    "create": true,
+    "update": true,
+    "delete": false
+  }
+}
