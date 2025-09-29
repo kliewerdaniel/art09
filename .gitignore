@@ -1,22 +1,40 @@
-# Dependencies
+# =====================================
+# Dependencies & Package Managers
+# =====================================
 node_modules/
 .pnp
 .pnp.js
+jspm_packages/
+.npm
+.yarn-integrity
 
-# Production builds
+# =====================================
+# Build Outputs & Distribution
+# =====================================
 .next/
 out/
 build/
 dist/
+.nuxt
+.turbo
 
-# Environment variables
+# TypeScript build cache
+*.tsbuildinfo
+next-env.d.ts
+
+# =====================================
+# Environment Variables & Secrets
+# =====================================
 .env
 .env*.local
 .env.development.local
 .env.test.local
 .env.production.local
 
-# PocketBase data and binaries
+# =====================================
+# Database & Data Files
+# =====================================
+# PocketBase
 pb_data/
 pocketbase/
 *.sqlite
@@ -24,7 +42,9 @@ pocketbase/
 *.db
 *.db-journal
 
-# Logs
+# =====================================
+# Logs & Runtime Data
+# =====================================
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -37,69 +57,44 @@ pids
 *.seed
 *.pid.lock
 
-# Coverage directory used by tools like istanbul
+# Optional REPL history
+.node_repl_history
+
+# =====================================
+# Testing & Coverage
+# =====================================
 coverage/
 *.lcov
-
-# nyc test coverage
 .nyc_output
-
-# Dependency directories
-jspm_packages/
-
-# Optional npm cache directory
-.npm
-
-# Optional eslint cache
-.eslintcache
-
-# Microbundle cache
 .rpt2_cache/
 .rts2_cache_cjs/
 .rts2_cache_es/
 .rts2_cache_umd/
 
-# Optional REPL history
-.node_repl_history
+# =====================================
+# Caching & Temporary Files
+# =====================================
+.cache/
+.parcel-cache/
+.eslintcache/
+.storybook-out/
 
 # Output of 'npm pack'
 *.tgz
 
-# Yarn Integrity file
-.yarn-integrity
-
-# parcel-bundler cache (https://parceljs.org/)
-.cache
-.parcel-cache
-
-# Next.js build output
-.next
-out
-
-# Nuxt.js build / generate output
-.nuxt
-dist
-
-# Gatsby files
-.cache/
-public
-
-# Storybook build outputs
-.out
-.storybook-out
-
-# Temporary folders
-tmp/
-temp/
-
-# Editor directories and files
+# =====================================
+# Editor & IDE Files
+# =====================================
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
+.history/*
 
-# OS generated files
+# =====================================
+# Operating System Files
+# =====================================
 .DS_Store
 .DS_Store?
 ._*
@@ -108,43 +103,46 @@ temp/
 ehthumbs.db
 Thumbs.db
 
-# Testing
-coverage/
-.nyc_output/
+# =====================================
+# Development Tools & Services
+# =====================================
+.vercel/
+.netlify/
 
-# TypeScript
-*.tsbuildinfo
-next-env.d.ts
-
-# Vercel
-.vercel
-
-# Turbo
-.turbo
-
-# Stripe test files
+# Stripe testing
 stripe-mock/
 
-# ngrok
+# Tunneling
 .ngrok2/
 
 # Local development
 .dev/
 
-# dotenv
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+# =====================================
+# Security & Privacy
+# =====================================
+# Backup files that might contain secrets
+*.backup
+*.bak
 
-# TypeScript
-*.tsbuildinfo
+# Temporary files that might contain sensitive data
+*.tmp
+*.temp
 
-# Editor
-.vscode/
-.idea/
-.DS_Store
+# =====================================
+# Deployment & Platform Files
+# =====================================
+# Vercel
+.vercel
 
-# OS
-Thumbs.db
+# Netlify
+.netlify/
+
+# Docker (when using docker-compose override files)
+.docker/
+
+# =====================================
+# Documentation (optional - uncomment if needed)
+# =====================================
+# docs/
+# *.md
