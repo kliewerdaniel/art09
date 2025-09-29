@@ -98,7 +98,7 @@
       }
     },
     {
-      "name": "created_at",
+      "name": "created",
       "type": "date",
       "required": true,
       "options": {
@@ -106,7 +106,7 @@
       }
     },
     {
-      "name": "updated_at",
+      "name": "updated",
       "type": "date",
       "required": true,
       "options": {

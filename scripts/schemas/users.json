@@ -17,12 +17,12 @@
       }
     },
     {
-      "name": "first_name",
+      "name": "firstName",
       "type": "text",
       "required": true
     },
     {
-      "name": "last_name",
+      "name": "lastName",
       "type": "text",
       "required": true
     },
@@ -51,7 +51,7 @@
       }
     },
     {
-      "name": "created_at",
+      "name": "created",
       "type": "date",
       "required": true,
       "options": {
@@ -59,7 +59,7 @@
       }
     },
     {
-      "name": "updated_at",
+      "name": "updated",
       "type": "date",
       "required": true,
       "options": {
