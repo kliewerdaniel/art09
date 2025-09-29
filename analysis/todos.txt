@@ -1,0 +1,6 @@
+analysis/final-audit-report.md:122:## Remaining TODO/FIXME Items
+app/donate/page.tsx:174:      // TODO: Integrate with Stripe for actual payment processing
+lib/stripe.ts:108:        console.log(`Unhandled event type ${event.type}`)
+lib/stripe.ts:160:    console.log('Payment processed successfully:', paymentIntent.id)
+lib/stripe.ts:191:    console.log('Payment failure recorded:', paymentIntent.id)
+masterprompt.md:83:- Insert comments / TODOs for things requiring secrets (Stripe keys etc).  
